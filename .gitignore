@@ -1,0 +1,5 @@
+﻿.idea/
+__pycache__/
+*.pyc
+*.db
+data/user_info_2000.csv
