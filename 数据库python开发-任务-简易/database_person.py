@@ -1,8 +1,12 @@
 ﻿import sqlite3
+from pathlib import Path
+
+
+DB_FILE = Path(__file__).with_name("person.db")
 
 
 def create_table():
-    conn = sqlite3.connect("person.db")
+    conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -19,7 +23,7 @@ def create_table():
 
 
 def add_person(username, age, sex, high):
-    conn = sqlite3.connect("person.db")
+    conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
 
     cursor.execute(
@@ -32,7 +36,7 @@ def add_person(username, age, sex, high):
 
 
 def show_all_person():
-    conn = sqlite3.connect("person.db")
+    conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
 
     cursor.execute("select username, age, sex, high from person")
